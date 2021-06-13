@@ -14,7 +14,7 @@ data:extend{
         setting_type = "startup",
         default_value = false,
         --order = "
-    },  
+    },
     --]]
 
     -- Global settings (loaded before the control stage)
@@ -37,7 +37,7 @@ data:extend{
         name = "betterbots-scheduler-tasks-per-tick",
         setting_type = "runtime-global",
         default_value = 3,
-        allowed_values = {1,2,3,4,5},
+        allowed_values = {1, 2, 3, 4, 5},
         order = "b-b"
     }
 }
