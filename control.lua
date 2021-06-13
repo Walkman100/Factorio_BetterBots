@@ -3,7 +3,7 @@ require 'stdlib/event/event'
 require 'stdlib/string'
 require 'stdlib/table'
 require 'stdlib/entity/entity'
-require 'mod-gui'
+local mod_gui = require 'mod-gui'
 require 'scheduler'
 
 require 'migrations'
@@ -194,7 +194,8 @@ Event.register(
     end
 )
 
-script.on_event(defines.events.on_gui_closed,
+script.on_event(
+    defines.events.on_gui_closed,
     function(event)
         if event.gui_type == defines.gui_type.custom and event.element and event.element.name == "betterbots_confirm_box" then
             event.element.destroy()
