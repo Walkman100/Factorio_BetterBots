@@ -38,7 +38,7 @@ for robopads_tech = 1, 4 do
     port.energy_usage = energy_use .. "kW"
     port.placeable_by = {item = "roboport", count = 1}
     port.minable = {mining_time = 0.1, result = "roboport", count = 1}
-    port.icon = "__BetterBots__/graphics/icons/roboport_" .. robopads_tech .. ".png"
+    port.icon = "__BetterBotsWLK__/graphics/icons/roboport_" .. robopads_tech .. ".png"
     port.icon_size = 32
 
     table.insert(roboports, port)

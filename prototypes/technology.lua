@@ -5,7 +5,7 @@ data:extend({
         type = "technology",
         name = "roboport-charge-pads-1",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/roboport-charge-pads.png",
+        icon = "__BetterBotsWLK__/graphics/technology/roboport-charge-pads.png",
         effects = { },
         prerequisites = {
             "logistic-robotics",
@@ -27,7 +27,7 @@ data:extend({
         type = "technology",
         name = "roboport-charge-pads-2",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/roboport-charge-pads.png",
+        icon = "__BetterBotsWLK__/graphics/technology/roboport-charge-pads.png",
         effects = { },
         prerequisites = {
             "roboport-charge-pads-1"
@@ -49,7 +49,7 @@ data:extend({
         type = "technology",
         name = "roboport-charge-pads-3",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/roboport-charge-pads.png",
+        icon = "__BetterBotsWLK__/graphics/technology/roboport-charge-pads.png",
         effects = { },
         prerequisites = {
             "roboport-charge-pads-2"
@@ -72,7 +72,7 @@ data:extend({
         type = "technology",
         name = "roboport-charge-pads-4",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/roboport-charge-pads.png",
+        icon = "__BetterBotsWLK__/graphics/technology/roboport-charge-pads.png",
         effects = { },
         prerequisites = {
             "roboport-charge-pads-3"
@@ -98,7 +98,7 @@ data:extend({
         type = "technology",
         name = "wired-roboports",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/wired-roboports.png",
+        icon = "__BetterBotsWLK__/graphics/technology/wired-roboports.png",
         effects = { },
         prerequisites = {
             "roboport-charge-pads-2",
@@ -123,7 +123,7 @@ data:extend({
         type = "technology",
         name = "roboport-power-field",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/wired-roboports.png",
+        icon = "__BetterBotsWLK__/graphics/technology/wired-roboports.png",
         effects = { },
         prerequisites = {
             "wired-roboports",
@@ -149,7 +149,7 @@ data:extend({
         type = "technology",
         name = "charting-roboports-1",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/charting-roboports.png",
+        icon = "__BetterBotsWLK__/graphics/technology/charting-roboports.png",
         effects = { },
         prerequisites = {
             "roboport-charge-pads-1",
@@ -173,7 +173,7 @@ data:extend({
         type = "technology",
         name = "charting-roboports-2",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/charting-roboports.png",
+        icon = "__BetterBotsWLK__/graphics/technology/charting-roboports.png",
         effects = { },
         prerequisites = {
             "charting-roboports-1",
@@ -203,7 +203,7 @@ data:extend({
         type = "technology",
         name = "worker-robots-battery-1",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
+        icon = "__BetterBotsWLK__/graphics/technology/worker-robots-battery.png",
         effects = {
             {
                 type = "worker-robot-battery",
@@ -229,7 +229,7 @@ data:extend({
         type = "technology",
         name = "worker-robots-battery-2",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
+        icon = "__BetterBotsWLK__/graphics/technology/worker-robots-battery.png",
         effects = {
             {
                 type = "worker-robot-battery",
@@ -255,7 +255,7 @@ data:extend({
         type = "technology",
         name = "worker-robots-battery-3",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
+        icon = "__BetterBotsWLK__/graphics/technology/worker-robots-battery.png",
         effects = {
             {
                 type = "worker-robot-battery",
@@ -282,7 +282,7 @@ data:extend({
         type = "technology",
         name = "worker-robots-battery-4",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
+        icon = "__BetterBotsWLK__/graphics/technology/worker-robots-battery.png",
         effects = {
             {
                 type = "worker-robot-battery",
@@ -309,7 +309,7 @@ data:extend({
         type = "technology",
         name = "worker-robots-battery-5",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
+        icon = "__BetterBotsWLK__/graphics/technology/worker-robots-battery.png",
         effects = {
             {
                 type = "worker-robot-battery",
@@ -337,7 +337,7 @@ data:extend({
         type = "technology",
         name = "worker-robots-battery-6",
         icon_size = 128,
-        icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
+        icon = "__BetterBotsWLK__/graphics/technology/worker-robots-battery.png",
         effects = {
             {
                 type = "worker-robot-battery",
