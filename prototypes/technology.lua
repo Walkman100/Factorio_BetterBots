@@ -7,7 +7,7 @@ data:extend({
         icon_size = 128,
         icon = "__BetterBots__/graphics/technology/roboport-charge-pads.png",
         effects = { },
-        prerequisites = { 
+        prerequisites = {
             "logistic-robotics",
             "construction-robotics"
         },
@@ -29,7 +29,7 @@ data:extend({
         icon_size = 128,
         icon = "__BetterBots__/graphics/technology/roboport-charge-pads.png",
         effects = { },
-        prerequisites = { 
+        prerequisites = {
             "roboport-charge-pads-1"
         },
         unit = {
@@ -105,11 +105,9 @@ data:extend({
             "electric-energy-distribution-2",
             "modules"
         },
-        unit =
-        {
+        unit = {
             count = 250,
-            ingredients =
-            {
+            ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
                 {"chemical-science-pack", 1},
@@ -130,11 +128,9 @@ data:extend({
         prerequisites = {
             "wired-roboports",
         },
-        unit =
-        {
+        unit = {
             count = 450,
-            ingredients =
-            {
+            ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
                 {"chemical-science-pack", 1},
@@ -147,7 +143,7 @@ data:extend({
         --upgrade = true,
         order = "c-k-f-f",
     },
-    
+
     -- Roboport Sensor Array
     {
         type = "technology",
@@ -160,17 +156,15 @@ data:extend({
             --"electric-energy-distribution-2",
             "modules"
         },
-        unit =
-        {
+        unit = {
             count = 200,
-            ingredients =
-            {
+            ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
                 {"chemical-science-pack", 1},
                 {"production-science-pack", 1},
             },
-          time = 30
+            time = 30
         },
         upgrade = true,
         order = "c-k-f-g",
@@ -185,11 +179,9 @@ data:extend({
             "charting-roboports-1",
             "roboport-charge-pads-4"
         },
-        unit =
-        {
+        unit = {
             count = 500,
-            ingredients =
-            {
+            ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
                 {"chemical-science-pack", 1},
@@ -197,7 +189,7 @@ data:extend({
                 {"utility-science-pack", 1},
                 {"space-science-pack", 1}
             },
-          time = 30
+            time = 30
         },
         upgrade = true,
         order = "c-k-f-h",
@@ -205,7 +197,7 @@ data:extend({
 })
 
 -- BOTS RELATED TECHNOLOGIES
-data:extend({  
+data:extend({
     -- Worker Robot Power Cells
     {
         type = "technology",
@@ -213,9 +205,14 @@ data:extend({
         icon_size = 128,
         icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
         effects = {
-            { type = "worker-robot-battery", modifier = 0.15 }
+            {
+                type = "worker-robot-battery",
+                modifier = 0.15
+            }
         },
-        prerequisites = { "robotics" },
+        prerequisites = {
+            "robotics"
+        },
         unit = {
             count = 50,
             ingredients = {
@@ -234,9 +231,14 @@ data:extend({
         icon_size = 128,
         icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
         effects = {
-            { type = "worker-robot-battery", modifier = 0.2 }
+            {
+                type = "worker-robot-battery",
+                modifier = 0.2
+            }
         },
-        prerequisites = { "worker-robots-battery-1" },
+        prerequisites = {
+            "worker-robots-battery-1"
+        },
         unit = {
             count = 100,
             ingredients = {
@@ -255,9 +257,14 @@ data:extend({
         icon_size = 128,
         icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
         effects = {
-            { type = "worker-robot-battery", modifier = 0.25 }
+            {
+                type = "worker-robot-battery",
+                modifier = 0.25
+            }
         },
-        prerequisites = { "worker-robots-battery-2" },
+        prerequisites = {
+            "worker-robots-battery-2"
+        },
         unit = {
             count = 150,
             ingredients = {
@@ -277,9 +284,14 @@ data:extend({
         icon_size = 128,
         icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
         effects = {
-            { type = "worker-robot-battery", modifier = 0.35 }
+            {
+                type = "worker-robot-battery",
+                modifier = 0.35
+            }
         },
-        prerequisites = {"worker-robots-battery-3"},
+        prerequisites = {
+            "worker-robots-battery-3"
+        },
         unit = {
             count = 250,
             ingredients = {
@@ -299,9 +311,14 @@ data:extend({
         icon_size = 128,
         icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
         effects = {
-            { type = "worker-robot-battery", modifier = 0.35 }
+            {
+                type = "worker-robot-battery",
+                modifier = 0.35
+            }
         },
-        prerequisites = {"worker-robots-battery-4"},
+        prerequisites = {
+            "worker-robots-battery-4"
+        },
         unit = {
             count = 500,
             ingredients = {
@@ -322,9 +339,14 @@ data:extend({
         icon_size = 128,
         icon = "__BetterBots__/graphics/technology/worker-robots-battery.png",
         effects = {
-            { type = "worker-robot-battery", modifier = 0.45 }
+            {
+                type = "worker-robot-battery",
+                modifier = 0.45
+            }
         },
-        prerequisites = {"worker-robots-battery-5"},
+        prerequisites = {
+            "worker-robots-battery-5"
+        },
         unit = {
             count_formula = "2^(L-6)*1000",
             ingredients = {
