@@ -93,57 +93,6 @@ data:extend({
         order = "c-k-f-d",
     },
 
-    -- Wired Roboports
-    {
-        type = "technology",
-        name = "wired-roboports",
-        icon_size = 128,
-        icon = "__BetterBotsWLK__/graphics/technology/wired-roboports.png",
-        effects = { },
-        prerequisites = {
-            "roboport-charge-pads-2",
-            "electric-energy-distribution-2",
-            "modules"
-        },
-        unit = {
-            count = 250,
-            ingredients = {
-                {"automation-science-pack", 1},
-                {"logistic-science-pack", 1},
-                {"chemical-science-pack", 1},
-                {"production-science-pack", 1},
-                {"utility-science-pack", 1},
-            },
-            time = 30
-        },
-        --upgrade = true,
-        order = "c-k-f-e",
-    },
-    {
-        type = "technology",
-        name = "roboport-power-field",
-        icon_size = 128,
-        icon = "__BetterBotsWLK__/graphics/technology/wired-roboports.png",
-        effects = { },
-        prerequisites = {
-            "wired-roboports",
-        },
-        unit = {
-            count = 450,
-            ingredients = {
-                {"automation-science-pack", 1},
-                {"logistic-science-pack", 1},
-                {"chemical-science-pack", 1},
-                {"production-science-pack", 1},
-                {"utility-science-pack", 1},
-                {"space-science-pack", 1}
-            },
-            time = 30
-        },
-        --upgrade = true,
-        order = "c-k-f-f",
-    },
-
     -- Roboport Sensor Array
     {
         type = "technology",

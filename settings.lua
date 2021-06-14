@@ -3,13 +3,6 @@ data:extend{
     --[[
     {
         type = "bool-setting",
-        name = "betterbots-enable-wired-roboports",
-        setting_type = "startup",
-        default_value = false,
-        --order = "
-    },
-    {
-        type = "bool-setting",
         name = "betterbots-enable-charting-roboports",
         setting_type = "startup",
         default_value = false,
