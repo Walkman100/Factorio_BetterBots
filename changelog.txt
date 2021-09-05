@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.11
+Date: 2021.09.05
+  Changes:
+    - Added Wired Roboports and Roboport Power Field functionality back with a Startup setting
+---------------------------------------------------------------------------------------------------
 Version: 1.3.10
 Date: 2021.06.16
   Changes:
