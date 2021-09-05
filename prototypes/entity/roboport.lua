@@ -44,4 +44,92 @@ for robopads_tech = 1, 4 do
     table.insert(roboports, port)
 end
 
+if (settings.startup["betterbots-enable-wired-roboports"].value) then
+    --[[
+
+    Dummy Power Pole entity
+
+    I wish we could wire any entity with copper cables instead of being forced into this mess....
+
+    --]]
+
+    local dummy_pole = {
+        type = "electric-pole",
+        name = "betterbots-dummy-pole",
+        icon = "__base__/graphics/icons/big-electric-pole.png",
+        icon_size = 32,
+        drawing_box = {{0,0}, {0,0}},
+        maximum_wire_distance = 30,
+        supply_area_distance = 0,
+        pictures = {
+            filename = "__core__/graphics/empty.png",
+            priority = "low",
+            width = 1,
+            height = 1,
+            direction_count = 1,
+            apply_projection = false,
+            shift = {0.0, 0.0}
+        },
+        connection_points = {
+            {
+                shadow = {
+                    copper = {-0.5, 0.5}
+                },
+                wire = {
+                    copper = {-0.5, 0.5}
+                }
+            }
+        },
+        order = "c-a",
+        radius_visualisation_picture =
+        {
+            filename = "__core__/graphics/empty.png",
+            width = 1,
+            height = 1,
+            priority = "low"
+        },
+    }
+
+    table.insert(roboports, dummy_pole)
+
+    local powering_pole = {
+        type = "electric-pole",
+        name = "betterbots-powering-pole",
+        icon = "__base__/graphics/icons/big-electric-pole.png",
+        icon_size = 32,
+        drawing_box = {{0,0}, {0,0}},
+        maximum_wire_distance = 30,
+        supply_area_distance = 4,
+        pictures = {
+            filename = "__core__/graphics/empty.png",
+            priority = "low",
+            width = 1,
+            height = 1,
+            direction_count = 1,
+            apply_projection = false,
+            shift = {0.0, 0.0}
+        },
+        connection_points = {
+            {
+                shadow = {
+                    copper = {-0.5, 0.5}
+                },
+                wire = {
+                    copper = {-0.5, 0.5}
+                }
+            }
+        },
+        order = "c-a",
+        radius_visualisation_picture =
+        {
+            filename = "__base__/graphics/entity/small-electric-pole/electric-pole-radius-visualization.png",
+            width = 12,
+            height = 12,
+            priority = "extra-high-no-scale"
+        },
+    }
+
+    table.insert(roboports, powering_pole)
+end
+
 data:extend(roboports)

@@ -162,6 +162,11 @@ Event.register(
                 techs['roboport-charge-pads'..'-'..i].researched = false
             end
 
+            if (settings.startup["betterbots-enable-wired-roboports"].value) then
+                techs['wired-roboports'].researched = false
+                techs['roboport-power-field'].researched = false
+            end
+
             for i = 2, 1, -1 do
                 techs['charting-roboports-'..i].researched = false
             end
@@ -310,7 +315,7 @@ Event.register(
         local tech_name = event.research.name
         local force = event.research.force
 
-        if tech_name:starts_with('roboport-charge-pads') then
+        if tech_name:starts_with('roboport-charge-pads') or tech_name:starts_with('wired-roboports') or tech_name:starts_with('roboport-power-field') then
             Scheduler.open_queue({"", {"betterbots-gui.upgrade_roboports_queue"}, " (", event.research.localised_name, ")"})
             Scheduler.queue_task(upgrade_roboports, {force, calculate_betterbots_tech_levels(force)})
             Scheduler.close_queue()
@@ -488,6 +493,8 @@ function manage_port_data(port, techs)
     if not techs then return nil end
 
     local chargepads_tech_level = techs.chargepads_tech_level
+    local wired_tech_level = techs.wired_tech_level -- will be nil if techs.wired_tech_level is not set
+    local powerfield_tech_level = techs.powerfield_tech_level
     local charting_tech_level = techs.charting_tech_level
 
     local surface = port.surface
@@ -510,6 +517,30 @@ function manage_port_data(port, techs)
         Entity.set_indestructible(bp_port)
         port_data.dummy_entities.blueprint_roboport = bp_port
     end ]]
+
+    if (settings.startup["betterbots-enable-wired-roboports"].value) then
+        if powerfield_tech_level > 0 then
+            local d_pole = port_data.dummy_entities.dummy_power_pole
+
+            if not (d_pole and d_pole.valid and d_pole.name:starts_with('betterbots-powering-pole')) then
+                if d_pole and d_pole.valid then
+                    d_pole.destroy()
+                end
+
+                d_pole = surface.create_entity({ name = 'betterbots-powering-pole', position = pos, force = force })
+                Entity.set_frozen(d_pole)
+                Entity.set_indestructible(d_pole)
+                port_data.dummy_entities.dummy_power_pole = d_pole
+            end
+        elseif wired_tech_level > 0 then
+            if not (port_data.dummy_entities.dummy_power_pole and port_data.dummy_entities.dummy_power_pole.valid) then
+                local d_pole = surface.create_entity({ name = 'betterbots-dummy-pole', position = pos, force = force })
+                Entity.set_frozen(d_pole)
+                Entity.set_indestructible(d_pole)
+                port_data.dummy_entities.dummy_power_pole = d_pole
+            end
+        end
+    end
 
     if charting_tech_level > 0 then
         if charting_tech_level == 1 then
@@ -535,6 +566,8 @@ function upgrade_roboport_entity(port, techs)
     if not port or not port.valid then return end
 
     local chargepads_tech_level = techs.chargepads_tech_level
+    local wired_tech_level = techs.wired_tech_level -- will be nil if techs.wired_tech_level is not set
+    local powerfield_tech_level = techs.powerfield_tech_level
     local charting_tech_level = techs.charting_tech_level
 
     local pos = port.position
@@ -571,6 +604,30 @@ function upgrade_roboport_entity(port, techs)
 
         if not port_data.dummy_entities then
             port_data.dummy_entities = { }
+        end
+
+        if (settings.startup["betterbots-enable-wired-roboports"].value) then
+            if powerfield_tech_level > 0 then
+                local d_pole = port_data.dummy_entities.dummy_power_pole
+
+                if not (d_pole and d_pole.valid and d_pole.name:starts_with('betterbots-powering-pole')) then
+                    if d_pole and d_pole.valid then
+                        d_pole.destroy()
+                    end
+
+                    d_pole = surface.create_entity({name = 'betterbots-powering-pole', position = pos, force = force})
+                    Entity.set_frozen(d_pole)
+                    Entity.set_indestructible(d_pole)
+                    port_data.dummy_entities.dummy_power_pole = d_pole
+                end
+            elseif wired_tech_level > 0 then
+                if not (port_data.dummy_entities.dummy_power_pole and port_data.dummy_entities.dummy_power_pole.valid) then
+                    local d_pole = surface.create_entity({name = 'betterbots-dummy-pole', position = pos, force = force})
+                    Entity.set_frozen(d_pole)
+                    Entity.set_indestructible(d_pole)
+                    port_data.dummy_entities.dummy_power_pole = d_pole
+                end
+            end
         end
 
         if charting_tech_level == 1 then
@@ -794,8 +851,17 @@ function calculate_tech_level(force, tech_name, max_levels)
 end
 
 function calculate_betterbots_tech_levels(force)
-    return {
-        chargepads_tech_level = calculate_tech_level(force, 'roboport-charge-pads', 4),
-        charting_tech_level = calculate_tech_level(force, 'charting-roboports', 2)
-    }
+    if (settings.startup["betterbots-enable-wired-roboports"].value) then
+        return {
+            chargepads_tech_level = calculate_tech_level(force, 'roboport-charge-pads', 4),
+            wired_tech_level = calculate_tech_level(force, 'wired-roboports', 1),
+            powerfield_tech_level = calculate_tech_level(force, 'roboport-power-field', 1),
+            charting_tech_level = calculate_tech_level(force, 'charting-roboports', 2)
+        }
+    else
+        return {
+            chargepads_tech_level = calculate_tech_level(force, 'roboport-charge-pads', 4),
+            charting_tech_level = calculate_tech_level(force, 'charting-roboports', 2)
+        }
+    end
 end

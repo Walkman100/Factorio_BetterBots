@@ -1,5 +1,13 @@
 data:extend{
     -- Startup Settings (loaded before the prototype stage)
+    {
+        type = "bool-setting",
+        name = "betterbots-enable-wired-roboports",
+        setting_type = "startup",
+        default_value = false,
+        order = "a-a"
+    },
+
     --[[
     {
         type = "bool-setting",
